@@ -1,6 +1,6 @@
 {
-    "name": "esyede/winpay-php",
-    "description": "Integration Library for Winpay.id v3",
+    "name": "esyede/taptalk-php",
+    "description": "Unofficial integration library for TapTalk's SendTalk API",
     "type": "library",
     "require": {
         "php": ">=5.4.0",
@@ -8,10 +8,10 @@
         "ext-json": "*"
     },
     "license": "MIT",
-    "homepage": "https://github.com/esyede/winpay-php",
+    "homepage": "https://github.com/esyede/taptalk-php",
     "support": {
-        "issues": "https://github.com/esyede/winpay-php/issues",
-        "source": "https://github.com/esyede/winpay-php"
+        "issues": "https://github.com/esyede/taptalk-php/issues",
+        "source": "https://github.com/esyede/taptalk-php"
     },
     "authors": [
         {

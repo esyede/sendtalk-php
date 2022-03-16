@@ -1,5 +1,5 @@
 {
-    "name": "esyede/taptalk-php",
+    "name": "esyede/sendtalk-php",
     "description": "Unofficial integration library for TapTalk's SendTalk API",
     "type": "library",
     "require": {
@@ -8,10 +8,10 @@
         "ext-json": "*"
     },
     "license": "MIT",
-    "homepage": "https://github.com/esyede/taptalk-php",
+    "homepage": "https://github.com/esyede/sendtalk-php",
     "support": {
-        "issues": "https://github.com/esyede/taptalk-php/issues",
-        "source": "https://github.com/esyede/taptalk-php"
+        "issues": "https://github.com/esyede/sendtalk-php/issues",
+        "source": "https://github.com/esyede/sendtalk-php"
     },
     "authors": [
         {

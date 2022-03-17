@@ -4,7 +4,18 @@ namespace Esyede\TapTalk;
 
 class SendTalk
 {
+    /**
+     * SendTalk api key.
+     *
+     * @var string
+     */
     private $apiKey;
+
+    /**
+     * API endpoint.
+     *
+     * @var string
+     */
     private $endpoint;
 
     /**
@@ -40,10 +51,10 @@ class SendTalk
     /**
      * Send a text message with image.
      *
-     * @param string $receiverPhone
-     * @param string $imageUrl
-     * @param string $imageFileName
-     * @param string $imageCaption
+     * @param string      $receiverPhone
+     * @param string      $imageUrl
+     * @param string|null $imageFileName
+     * @param string|null $imageCaption
      *
      * @return \stdClass
      */
@@ -53,9 +64,15 @@ class SendTalk
             'phone' => $receiverPhone,
             'messageType' => 'image',
             'body' => $imageUrl,
-            'caption' => $imageCaption,
-            'filename' => $imageFileName,
         ];
+
+        if (! is_null($imageCaption)) {
+            $payloads['caption'] = $imageCaption;
+        }
+
+        if (! is_null($imageFileName)) {
+            $payloads['filename'] = $imageFileName;
+        }
 
         return $this->send($payloads);
     }
@@ -91,6 +108,7 @@ class SendTalk
         $headers = [
             'API-Key: ' . $this->apiKey,
             'Accept: application/json',
+            'Content-Type: application/json',
         ];
 
         // Format phone number.
@@ -115,7 +133,7 @@ class SendTalk
 
         $responses = json_decode($responses);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (JSON_ERROR_NONE !== json_last_error()) {
             $errors = 'Unable to decode json response.';
         }
 
@@ -132,8 +150,7 @@ class SendTalk
     }
 
     /**
-     * Format nomor telepon.
-     * Ubah karakter awal menjadi '62'.
+     * Ensure phone number begins with '62'.
      *
      * @param string $receiverPhone
      *
